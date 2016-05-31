@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<section class="gallery">
+  <div class="grid js-masonry">
+    {% for item in paintings %}
+      <div class="grid-item">
+        <div class="image">
+          <img class="img" src="/upload/paintings/{{ item.filename }}">
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</section>
+
+
+{% endblock %}
+
+{% block javascripts %}
+  {{ parent() }}
+  <script type="text/javascript" src="{{ asset('js/lib/masonry.min.js')}}"></script>
+  <script type="text/javascript" src="{{ asset('js/lib/imagesloaded.min.js')}}"></script>
+  <script type="text/javascript" src="{{ asset('js/modal.js')}}"></script>
+  <script>
+    new imagesLoaded('.grid', function() {
+      new Masonry('.grid', {
+        itemSelector: '.grid-item',
+        transitionDuration: '0.4s',
+        gutter: 20,
+        columnWidth: 275
+      });
+
+      new Modal('.grid-item');
+    });
+
+
+  </script>
+{% endblock %}

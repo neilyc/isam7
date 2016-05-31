@@ -1,0 +1,28 @@
+.gallery {
+  padding-bottom: 50px;
+  .grid-item {
+    margin-bottom: 20px;
+    cursor: pointer;
+    width: 275px;
+    .image {
+      width: 275px;
+      height: 100%;
+      overflow: hidden;
+      img {
+        width: 275px;
+      }
+    }
+    &:hover {
+      img {
+        -webkit-transition: all 1s ease;
+        -ms-transition: all 1s ease;
+        -o-transition: all 1s ease;
+        transition: all 1s ease;
+        -webkit-transform: scale(1.05);
+        -ms-transform: scale(1.05);
+        -o-transform: scale(1.05);
+        transform: scale(1.05);
+      }
+    }
+  }
+}

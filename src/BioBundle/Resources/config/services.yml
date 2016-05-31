@@ -1,0 +1,6 @@
+services:
+    bio.admin.biography:
+        class: BioBundle\Admin\BiographyAdmin
+        arguments: [~, BioBundle\Entity\Biography, SonataAdminBundle:CRUD]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: admin, label: Biographie }
