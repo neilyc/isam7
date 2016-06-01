@@ -1,12 +1,9 @@
 ;(function(window) {
   'use strict';
-  var modal, modalImg, close;
-  function App(elem, options) {
-    this.elem = elem;
+  function App() {
     this._init();
   };
   App.prototype = {
-    defaults : {},
     _init : function() {   
       window.onload = function() {
         document.body.removeChild(document.querySelector('.preloader'));
@@ -25,14 +22,6 @@
 
       new Modal('.grid-item');
     }
-  }
-  function extend( a, b ) {
-    for( var key in b ) { 
-      if( b.hasOwnProperty( key ) ) {
-        a[key] = b[key];
-      }
-    }
-    return a;
   }
   window.App = App;
 
