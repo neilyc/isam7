@@ -50,10 +50,10 @@
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::prepareDeploymentTarget",
-            "php bin/console doctrine:schema:update --force",
-            "php bin/console cache:clear --env=dev",
-            "php bin/console cache:clear --env=prod"
-        ]
+            "php5 bin/console doctrine:schema:update --force",
+            "php5 bin/console cache:clear --env=dev",
+            "php5 bin/console cache:clear --env=prod"
+        ],
     },
     "config": {
         "platform": {
