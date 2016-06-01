@@ -22,7 +22,7 @@
   <script type="text/javascript" src="{{ asset('js/lib/imagesloaded.min.js')}}"></script>
   <script type="text/javascript" src="{{ asset('js/modal.js')}}"></script>
   <script>
-    new imagesLoaded('.grid', function() {
+    new imagesLoaded(document.querySelectorAll('.grid-item'), function() {
       new Masonry('.grid', {
         itemSelector: '.grid-item',
         transitionDuration: '0.4s',

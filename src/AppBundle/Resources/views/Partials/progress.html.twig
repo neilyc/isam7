@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<div class="soon">
+  <p class="soon"><img src="{{ asset('img/soon1.jpg') }}" width="50%"></p>
+  <p class="soon">Ce site est actuellement en construction.</p>
+  <p class="soon">
+    En attendant, vous pouvez retrouver mes créations sur l'espace 
+    <a href="{{ path('painting_default_index') }}">galerie</a>
+  </p>
+  <p class="soon"><img src="{{ asset('img/soon2.jpg') }}" width="50%"></p>
+</div>
+{% endblock %}
+ 

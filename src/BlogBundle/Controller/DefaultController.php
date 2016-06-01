@@ -12,7 +12,7 @@ class DefaultController extends Controller
    */
   public function indexAction()
   {
-    $blog = $this->getDoctrine()
+    /*$blog = $this->getDoctrine()
       ->getRepository('BlogBundle:Blog')
       ->findAll();
         
@@ -23,6 +23,7 @@ class DefaultController extends Controller
     $context = array(
       'blog' => $blog
     );
-    return $this->render('BlogBundle:Default:index.html.twig', $context);
+    return $this->render('BlogBundle:Default:index.html.twig', $context);*/
+    return $this->render('AppBundle:Partials:progress.html.twig');
   }
 }
