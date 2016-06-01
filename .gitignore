@@ -15,6 +15,7 @@
 /vendor/
 /web/bundles/
 /web/upload/
+.composer.lock
 
 /node_modules/
 /phpunit.xml.dist

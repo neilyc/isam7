@@ -15,14 +15,17 @@ gulp.task('styles', function() {
   .pipe(gulp.dest('./web/css'));
 });
 
-gulp.task('jsadmin', function() {
+gulp.task('js', function() {
   gulp.src([
-    './bower_components/ng-admin/build/ng-admin.min.js',
-    './src/AppBundle/Public/js/admin/**/*.js',
+    './web/js/lib/modernizr.custom.js',
+    './web/js/lib/masonry.pkgd.min.js',
+    './web/js/lib/imagesloaded.js',
+    './web/js/lib/classie.js',
+    './web/js/lib/AnimOnScroll.js'
   ])
-  .pipe(concat('admin.js'))
+  .pipe(concat('gallery.js'))
   .pipe(uglify())
-  .pipe(gulp.dest('./web/js'));
+  .pipe(gulp.dest('./web/js/'));
 });
 
 gulp.task('watch', function () {
@@ -33,5 +36,6 @@ gulp.task('watch', function () {
 
 gulp.task('default', [
   'styles',
+  'js',
   'watch'
 ]);
