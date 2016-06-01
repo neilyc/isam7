@@ -53,7 +53,7 @@
             "php5 bin/console doctrine:schema:update --force",
             "php5 bin/console cache:clear --env=dev",
             "php5 bin/console cache:clear --env=prod"
-        ],
+        ]
     },
     "config": {
         "platform": {
