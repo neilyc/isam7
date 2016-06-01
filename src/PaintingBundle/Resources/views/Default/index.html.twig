@@ -15,16 +15,7 @@
 {% endblock %}
 
 {% block javascripts %}
-  {{ parent() }}
   <script type="text/javascript" src="{{ asset('js/gallery.js')}}"></script>
   <script type="text/javascript" src="{{ asset('js/modal.js')}}"></script>
-  <script>
-    new AnimOnScroll(document.getElementById( 'grid' ), {
-      minDuration : 0.4,
-      maxDuration : 0.7,
-      viewportFactor : 0.2
-    });
-
-    new Modal('.grid-item');
-  </script>
+  {{ parent() }}
 {% endblock %}
