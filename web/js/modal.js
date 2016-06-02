@@ -1,17 +1,18 @@
 ;(function(window) {
   'use strict';
-  var modal, modalImg, close;
+  var modal, modalImg, close, self;
   function Modal(elem, options) {
-    this.elem = elem;
-    this._init();
-    this.options = extend( this.defaults, options );
+    self = this;
+    self.elem = elem;
+    self._init();
+    self.options = extend( self.defaults, options );
 
-    var items = document.querySelectorAll(this.elem);
+    var items = document.querySelectorAll(self.elem);
     Array.prototype.forEach.call(items, function(item) {
-      item.addEventListener('click', this._open);
-    }, this);
+      item.addEventListener('click', self._open);
+    }, self);
 
-    modal.addEventListener('click', this._close);
+    modal.addEventListener('click', self._close);
   };
   Modal.prototype = {
     defaults : {},
@@ -35,7 +36,6 @@
 
       modal.style.display = "block";
       modalImg.src = currentImg.src;
-      modalImg.alt = currentImg.alt;
     },
     _close : function() {
       modal.style.display = "none";

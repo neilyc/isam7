@@ -21,18 +21,46 @@ body {
     height: 100%;
     z-index: 100;
     background: #fff;
-    span {
+    .loader {
       display: block;
+      position: relative;
+      width: 40px;
+      height: 40px;
+      margin: 0 auto;
       border-radius: 50%;
-      width: 25px;
-      height: 25px;
-      border: 5px solid #CCC;
-      border-top-color: #1d558c;
-      -webkit-animation: spin 1s infinite linear;
-              animation: spin 1s infinite linear;
-      border-style: double;
-      border-width: .5rem;
-      margin: 30px auto;
+      border: 2px solid transparent;
+      border-top-color: #3498db;
+      -webkit-animation: spin 2.5s linear infinite;
+      animation: spin 2.5s linear infinite;
+      z-index: 1001;
+
+      &:before {
+        content: "";
+        position: absolute;
+        top: 2px;
+        left: 2px;
+        right: 2px;
+        bottom: 2px;
+        border-radius: 50%;
+        border: 2px solid transparent;
+        border-top-color: #e74c3c;
+        -webkit-animation: spin 3.5s linear infinite;
+        animation: spin 3.5s linear infinite;
+      }
+
+      &:after {
+        content: "";
+        position: absolute;
+        top: 6px;
+        left: 6px;
+        right: 6px;
+        bottom: 6px;
+        border-radius: 50%;
+        border: 2px solid transparent;
+        border-top-color: #f9c922;
+        -webkit-animation: spin 2s linear infinite;
+        animation: spin 2s linear infinite;
+      }
     }
   }
   ul {
