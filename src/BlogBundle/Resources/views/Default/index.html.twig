@@ -1,5 +1,20 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    azeaze
+<div class="articles">
+  {% for article in blog %}
+    <div class="article col-md-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">{{article.title}}</h3>
+        </div>
+        <div class="panel-body">
+          <img src="{{ asset('/upload/blog/' ~ article.image) }}" />
+            {{article.description}}
+          <a href="{{ path('blog_default_view', {'id': article.id}) }}">Lire la suite</a>
+        </div>
+      </div>
+    </div>
+  {% endfor %}
+</div>
 {% endblock %}

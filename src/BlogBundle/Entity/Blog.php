@@ -2,6 +2,7 @@
 namespace BlogBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 /**
  * @ORM\Entity
@@ -24,32 +25,22 @@ class Blog
     /**
      * @ORM\Column(type="string", length=100)
      */
-    protected $filename;
+    protected $image;
 
     /**
-     * @ORM\Column(type="string", length=100, nullable=true)
+     * @ORM\Column(type="text", nullable=true)
      */
-    protected $filename1;
-
-    /**
-     * @ORM\Column(type="string", length=100, nullable=true)
-     */
-    protected $filename2;
-
-    /**
-     * @ORM\Column(type="string", length=100, nullable=true)
-     */
-    protected $filename3;
-
-    /**
-     * @ORM\Column(type="string", length=100, nullable=true)
-     */
-    protected $filename4;
+    protected $images;
 
     /**
      * @ORM\Column(type="text")
      */
     protected $description;
+
+    /**
+     * Unmapped property to handle file uploads
+     */
+    private $file;
 
     /**
      * Get id
@@ -86,126 +77,6 @@ class Blog
     }
 
     /**
-     * Set filename
-     *
-     * @param string $filename
-     *
-     * @return Blog
-     */
-    public function setFilename($filename)
-    {
-        $this->filename = $filename;
-
-        return $this;
-    }
-
-    /**
-     * Get filename
-     *
-     * @return string
-     */
-    public function getFilename()
-    {
-        return $this->filename;
-    }
-
-    /**
-     * Set filename1
-     *
-     * @param string $filename1
-     *
-     * @return Blog
-     */
-    public function setFilename1($filename1)
-    {
-        $this->filename1 = $filename1;
-
-        return $this;
-    }
-
-    /**
-     * Get filename1
-     *
-     * @return string
-     */
-    public function getFilename1()
-    {
-        return $this->filename1;
-    }
-
-    /**
-     * Set filename2
-     *
-     * @param string $filename2
-     *
-     * @return Blog
-     */
-    public function setFilename2($filename2)
-    {
-        $this->filename2 = $filename2;
-
-        return $this;
-    }
-
-    /**
-     * Get filename2
-     *
-     * @return string
-     */
-    public function getFilename2()
-    {
-        return $this->filename2;
-    }
-
-    /**
-     * Set filename3
-     *
-     * @param string $filename3
-     *
-     * @return Blog
-     */
-    public function setFilename3($filename3)
-    {
-        $this->filename3 = $filename3;
-
-        return $this;
-    }
-
-    /**
-     * Get filename3
-     *
-     * @return string
-     */
-    public function getFilename3()
-    {
-        return $this->filename3;
-    }
-
-    /**
-     * Set filename4
-     *
-     * @param string $filename4
-     *
-     * @return Blog
-     */
-    public function setFilename4($filename4)
-    {
-        $this->filename4 = $filename4;
-
-        return $this;
-    }
-
-    /**
-     * Get filename4
-     *
-     * @return string
-     */
-    public function getFilename4()
-    {
-        return $this->filename4;
-    }
-
-    /**
      * Set description
      *
      * @param string $description
@@ -228,4 +99,96 @@ class Blog
     {
         return $this->description;
     }
+    
+    /**
+     * Set image
+     *
+     * @param string $image
+     *
+     * @return Blog
+     */
+    public function setImage($image)
+    {
+        $this->image = $image;
+
+        return $this;
+    }
+
+    /**
+     * Get image
+     *
+     * @return string
+     */
+    public function getImage()
+    {
+        return $this->image;
+    }
+
+    /**
+     * Set images
+     *
+     * @param string $images
+     *
+     * @return Blog
+     */
+    public function setImages($images)
+    {
+        $this->images = $images;
+
+        return $this;
+    }
+
+    /**
+     * Get images
+     *
+     * @return string
+     */
+    public function getImages()
+    {
+        return $this->images;
+    }
+
+    /**
+     * Sets file.
+     *
+     * @param UploadedFile $file
+     */
+    public function setFile(UploadedFile $file = null)
+    {
+        $this->file = $file;
+    }
+
+    /**
+     * Get file.
+     *
+     * @return UploadedFile
+     */
+    public function getFile()
+    {
+        return $this->file;
+    }
+
+    public function uploadImage()
+    {
+        if (null === $this->getFile()) {
+            return;
+        }
+        $filename = date('dmYHis').'.'.$this->getFile()->guessExtension();
+
+        $this->getFile()->move(
+            __DIR__ . '/../../../web/upload/blog',
+            $filename
+        );
+
+        $this->image = $filename;
+
+        $this->setFile(null);
+    }
+
+    public function __toString()
+    {
+        return $this->title;
+    }
+
+
 }

@@ -7,7 +7,7 @@ uglify = require('gulp-uglify');
 
 gulp.task('styles', function() {
   gulp.src([
-    './web/css/less/*.less',
+    './web/css/less/styles.less',
   ])
   .pipe(concat('styles.min.css'))
   .pipe(less())

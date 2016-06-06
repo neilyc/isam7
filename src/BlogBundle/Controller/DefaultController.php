@@ -12,7 +12,7 @@ class DefaultController extends Controller
    */
   public function indexAction()
   {
-    /*$blog = $this->getDoctrine()
+    $blog = $this->getDoctrine()
       ->getRepository('BlogBundle:Blog')
       ->findAll();
         
@@ -23,7 +23,26 @@ class DefaultController extends Controller
     $context = array(
       'blog' => $blog
     );
-    return $this->render('BlogBundle:Default:index.html.twig', $context);*/
-    return $this->render('AppBundle:Partials:progress.html.twig');
+    return $this->render('BlogBundle:Default:index.html.twig', $context);
+  }
+
+  /**
+   * @Route("/{id}")
+   */
+  public function viewAction($id)
+  {
+    $article = $this->getDoctrine()
+      ->getRepository('BlogBundle:Blog')
+      ->find($id);
+        
+    if (!$article) {
+      $article = array();
+    }
+    
+    $context = array(
+      'article' => $article,
+      'images'  => json_decode($article->getImages())
+    );
+    return $this->render('BlogBundle:Default:view.html.twig', $context);
   }
 }

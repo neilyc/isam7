@@ -16,13 +16,9 @@ class BlogAdmin extends AbstractAdmin
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
         $datagridMapper
-            ->add('id')
             ->add('title')
-            ->add('filename')
-            ->add('filename1')
-            ->add('filename2')
-            ->add('filename3')
-            ->add('filename4')
+            ->add('image')
+            ->add('images')
             ->add('description')
         ;
     }
@@ -33,15 +29,11 @@ class BlogAdmin extends AbstractAdmin
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
-            ->add('id')
             ->add('title')
-            ->add('filename')
-            ->add('filename1')
-            ->add('filename2')
-            ->add('filename3')
-            ->add('filename4')
+            ->add('image')
+            ->add('images')
             ->add('description')
-            ->add('_action', 'actions', array(
+            ->add('_action', null, array(
                 'actions' => array(
                     'show' => array(),
                     'edit' => array(),
@@ -57,14 +49,9 @@ class BlogAdmin extends AbstractAdmin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->add('id')
             ->add('title')
-            ->add('filename')
-            ->add('filename1')
-            ->add('filename2')
-            ->add('filename3')
-            ->add('filename4')
             ->add('description')
+            ->add('file', 'file', array('label' => 'Image principale'));
         ;
     }
 
@@ -74,14 +61,28 @@ class BlogAdmin extends AbstractAdmin
     protected function configureShowFields(ShowMapper $showMapper)
     {
         $showMapper
-            ->add('id')
             ->add('title')
-            ->add('filename')
-            ->add('filename1')
-            ->add('filename2')
-            ->add('filename3')
-            ->add('filename4')
+            ->add('image')
+            ->add('images')
             ->add('description')
         ;
     }
+
+  public function prePersist($blog)
+  {
+    $this->saveImage($blog);
+  }
+
+  public function preUpdate($blog)
+  {
+    $this->saveImage($blog);
+  }
+
+  private function saveImage($blog)
+  {
+    // upload de l'image
+    if ($blog->getFile()) {
+        $blog->uploadImage();
+    }
+  }
 }

@@ -1,6 +1,8 @@
 services:
     blog.admin.blog:
         class: BlogBundle\Admin\BlogAdmin
-        arguments: [~, BlogBundle\Entity\Blog, SonataAdminBundle:CRUD]
+        arguments: [~, BlogBundle\Entity\Blog, BlogBundle:Admin]
         tags:
             - { name: sonata.admin, manager_type: orm, group: admin, label: Blog }
+        calls:
+            - [ setTemplate, [edit, BlogBundle:Admin:edit.html.twig]]
