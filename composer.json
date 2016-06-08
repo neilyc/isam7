@@ -45,7 +45,7 @@
         ],
         "post-update-cmd": [
             "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters",
-            "/usr/local/php5.5/bin/php bin/console assets:install",
+            "/usr/local/php5.5/bin/php bin/console assets:install"
         ],
         "prod" : [
             "/usr/local/php5.5/bin/php ~/composer.phar update",
