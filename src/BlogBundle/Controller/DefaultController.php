@@ -17,7 +17,7 @@ class DefaultController extends Controller
       ->findAll();
         
     if (!$blog) {
-      $blog = array();
+      return $this->render('AppBundle:Partials:progress.html.twig');
     }
 
     $context = array(
@@ -36,7 +36,7 @@ class DefaultController extends Controller
       ->find($id);
         
     if (!$article) {
-      $article = array();
+      return $this->render('AppBundle:Partials:progress.html.twig');
     }
     
     $context = array(
