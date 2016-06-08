@@ -45,16 +45,13 @@
         ],
         "post-update-cmd": [
             "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters",
-            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
-            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
-            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile",
-            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::prepareDeploymentTarget"
+            "/usr/local/php5.5/bin/php bin/console assets:install",
         ],
         "prod" : [
-            "/usr/local/php5.6/bin/php ~/composer.phar update",
-            "/usr/local/php5.6/bin/php bin/console doctrine:schema:update --force",
-            "/usr/local/php5.6/bin/php bin/console cache:clear --env=dev",
-            "/usr/local/php5.6/bin/php bin/console cache:clear --env=prod"
+            "/usr/local/php5.5/bin/php ~/composer.phar update",
+            "/usr/local/php5.5/bin/php bin/console doctrine:schema:update --force",
+            "/usr/local/php5.5/bin/php bin/console cache:clear --env=dev",
+            "/usr/local/php5.5/bin/php bin/console cache:clear --env=prod"
         ],
         "dev" : [
             "composer update",
