@@ -4,7 +4,7 @@
       min-height: 110px;
       border-color: #000;
       >.panel-heading {
-        background-color: #1d558c;
+        background-color: @isam-blue;
         color: #fff;
       }
       .panel-body {
@@ -19,5 +19,34 @@
         }
       }
     }
+  }
+}
+.blog {
+  .row {
+    .title {
+      border-bottom: 1px solid @isam-blue;
+      margin-bottom: 15px;
+      padding-bottom: 5px;
+      span {
+        text-transform: uppercase;
+        font-size: 16px;
+      }
+    }
+    .image {
+      border-bottom: 1px solid @isam-blue;
+      padding-bottom: 15px;
+      margin-bottom: 10px;
+      img {
+        width: 100%;
+      }
+    }
+    .desc {
+      border-bottom: 1px solid @isam-blue;
+      margin-bottom: 10px;
+      padding-bottom: 15px;
+    }
+    a {
+      cursor: pointer;
+    }       
   }
 }

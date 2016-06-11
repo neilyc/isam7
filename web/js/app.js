@@ -12,6 +12,9 @@
       if(document.querySelector('.gallery')) {
         this._initGallery();
       }
+      if(document.querySelector('.blog')) {
+        this._initBlog();
+      }
     },
     _initGallery : function() {
       new AnimOnScroll(document.getElementById('grid'), {
@@ -21,6 +24,9 @@
       });
 
       new Modal('.grid-item');
+    },
+    _initBlog : function() {
+      new Modal('.thumbnail');
     }
   }
   window.App = App;
