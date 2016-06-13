@@ -23,10 +23,23 @@
         viewportFactor : 0.2
       });
 
-      new Modal('.grid-item');
+      new Modal('.img');
     },
     _initBlog : function() {
-      new Modal('.thumbnail');
+      var modal = new Modal();
+      var swiper = new Swiper ('.swiper-container', {
+        slidesPerView: 4,
+        paginationClickable: true,
+        spaceBetween: 15,
+        loop: true,
+        preventClicks: false,
+        pagination: '.swiper-pagination',
+        nextButton: '.swiper-button-next',
+        prevButton: '.swiper-button-prev'
+      }); 
+      swiper.on('touchStart', function (s, e) {
+        modal.open(e);
+      });
     }
   }
   window.App = App;

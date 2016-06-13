@@ -1,4 +1,8 @@
 {% extends 'base.html.twig' %}
+{% block stylesheets %}
+  {{ parent() }}
+  <link rel="stylesheet" href="{{ asset('css/lib/swiper.min.css') }}">
+{% endblock %}
 
 {% block body %}
   <div class="blog">
@@ -7,19 +11,24 @@
       <div class="image"><img src="{{ asset('/upload/blog/' ~ article.image) }}"></div>
       <div class="desc">{{ article.description }}</div>
     </div>
-    <div class="row images">
-      {% for photo in images %}
-        <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
-          <a class="thumbnail">
+     <div class="swiper-container row images">
+      <div class="swiper-wrapper">
+        {% for photo in images %}
+          <div class="swiper-slide thumbnail">
             <img src="{{ asset('/upload/blog/' ~ photo) }}" class="img">
-          </a>
-        </div>
-      {% endfor %}
+          </div>
+        {% endfor %}
+      </div>
+      <div class="swiper-pagination"></div>
+      
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
     </div>
   </div>
 {% endblock %}
 
 {% block javascripts %}
   <script type="text/javascript" src="{{ asset('js/modal.js')}}"></script>
+  <script type="text/javascript" src="{{ asset('js/lib/swiper.min.js')}}"></script>
   {{ parent() }}
 {% endblock %}

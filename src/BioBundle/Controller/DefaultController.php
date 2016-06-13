@@ -12,18 +12,18 @@ class DefaultController extends Controller
    */
   public function indexAction()
   {
-    /*$bio = $this->getDoctrine()
+    $bio = $this->getDoctrine()
       ->getRepository('BioBundle:Biography')
       ->find(1);
         
     if (!$bio) {
-      $bio = array();
+      return $this->render('AppBundle:Partials:progress.html.twig');
     }
 
     $context = array(
       'bio' => $bio
     );
-    return $this->render('BioBundle:Default:index.html.twig', $context);*/
-    return $this->render('AppBundle:Partials:progress.html.twig');
+    
+    return $this->render('BioBundle:Default:index.html.twig', $context);
   }
 }

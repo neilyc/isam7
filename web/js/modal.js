@@ -7,10 +7,11 @@
     self._init();
     self.options = extend( self.defaults, options );
 
-    var items = document.querySelectorAll(self.elem);
-    Array.prototype.forEach.call(items, function(item) {
-      item.addEventListener('click', self._open);
-    }, self);
+    if(self.elem) {;
+      Array.prototype.forEach.call(document.querySelectorAll(self.elem), function(item) {
+        item.addEventListener('click', self._open);
+      });
+    }
 
     modal.addEventListener('click', self._close);
   };
@@ -31,14 +32,17 @@
       modal.appendChild(modalImg);
       document.body.appendChild(modal);    
     },
-    _open : function() {
-      var currentImg = this.querySelector('.img');
-
-      modal.style.display = "block";
-      modalImg.src = currentImg.src;
+    _open : function(e) {
+      modalImg.src = e.target.src;
+      modal.style.display = "block";  
     },
     _close : function() {
       modal.style.display = "none";
+    },
+    open : function(e) {
+      if(e.target.classList.contains('img')) {
+        self._open(e);
+      }
     }
   }
   function extend( a, b ) {
