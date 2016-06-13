@@ -47,6 +47,27 @@
     }
     a {
       cursor: pointer;
-    }       
+    }
+
+    .images {
+      img {
+        width: 100%;
+        cursor: pointer;
+      }
+      .photo {
+        padding: 0 0 0 15px;
+      }
+      .swiper-pagination {
+        position: relative;
+        .swiper-pagination-bullet {
+          margin: 0 3px;
+          width: 12px;
+          height: 12px;
+          &.swiper-pagination-bullet-active {
+            background: @isam-blue;
+          }
+        }
+      }
+    }
   }
 }
