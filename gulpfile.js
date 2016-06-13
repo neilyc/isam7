@@ -25,8 +25,8 @@ gulp.task('js', function() {
     './web/js/lib/AnimOnScroll.js',
     './web/js/lib/swiper.min.js',
     // app
-    './web/app/js/modal.js',
-    './web/app/js/app.js'
+    './web/js/app/modal.js',
+    './web/js/app/app.js'
   ])
   .pipe(concat('app.min.js'))
   .pipe(uglify())

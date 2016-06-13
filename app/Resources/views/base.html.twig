@@ -10,12 +10,12 @@
     <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
   </head>
   <body>
-    {{ include('AppBundle:Partials:header.html.twig') }}
     {% if app.request.attributes.get('_route') != 'homepage' %}
       <div class="preloader">
         <div class="loader"></div>
       </div>
     {% endif %}
+    {{ include('AppBundle:Partials:header.html.twig') }}
     <div class="content">
       <div class="container">
         {% block body %}{% endblock %}
