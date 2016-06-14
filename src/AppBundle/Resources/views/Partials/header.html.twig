@@ -1,27 +1,12 @@
-<div class="header">
-  <div class="wrapper">
-    <div class="main">
-      <ul class="menu" auto-active>
-        <li>
-          <a href="{{ path('bio_default_index') }}">Biographie</a>
-        </li>
-        <li>
-          <a href="{{ path('painting_default_index') }}">Galerie</a>
-        </li>
-      </ul>
-    </div>
-      <a class="logo" href="{{ path('homepage') }}"> 
-        <img alt="Brand" src="{{ asset('img/logo.png') }}">
-      </a>
-    <div class="main">
-      <ul class="menu" auto-active>
-          <li>
-            <a href="{{ path('painting_default_index') }}">Activités</a>
-          </li>
-          <li>
-            <a href="{{ path('blog_default_index') }}">Blog</a>
-          </li>
-      </ul>  
-    </div>
-  </div>
-</div>
+<ul class="topnav">
+  <li><a href="{{ path('bio_default_index') }}">Biographie</a></li>
+  <li><a href="{{ path('painting_default_index') }}">Galerie</a></li>
+  <li class="logo">      
+    <a href="{{ path('homepage') }}"> 
+      <img alt="Brand" src="{{ asset('img/logo.png') }}">
+    </a>
+  </li>
+  <li><a href="{{ path('painting_default_index') }}">Activités</a></li>
+  <li><a href="{{ path('blog_default_index') }}">Blog</a></li>
+  <li class="toggle-nav icon">&#9776;</li>
+</ul>

@@ -1,21 +1,35 @@
 .articles {
   .article {
+    width: 50%;
+    float: left;
+    padding: 10px;
     .panel-default {
       min-height: 110px;
       border-color: #000;
-      >.panel-heading {
+      .panel-heading {
         background-color: @isam-blue;
         color: #fff;
+        padding: 10px;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+        .panel-title {
+          margin:0 ;
+        }
       }
       .panel-body {
+        border: 1px solid @isam-blue;
+        padding: 10px;
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+        position: relative;
         img {
           width: 100%;
         }
         a {
-          bottom: 20px;
           color: #2535a5;
           position: absolute;
           right: 20px;
+          bottom: 0;
         }
       }
     }

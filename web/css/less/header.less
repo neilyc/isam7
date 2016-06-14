@@ -1,0 +1,66 @@
+.topnav {
+  border-top: 5px solid @isam-blue;
+  list-style-type: none;
+  padding: 10px 0;
+  overflow: hidden;
+  position: fixed;
+  right: 0;
+  left: 0;
+  top: 0;
+  margin: 0;
+  background: #fff;
+  z-index: 1;
+  text-align: center;
+  li {
+    display: inline-block;
+    margin: 0 30px;
+    vertical-align: middle;
+    line-height: normal;  
+    a {
+      text-transform: uppercase;
+      font-size: 13px;
+      font-weight: 300;
+      &:hover, &.current {
+        color: @isam-blue;
+      }
+    }
+    &.logo {
+      margin: 0 80px;
+    }
+    &.icon {
+      display: none;
+      cursor: pointer;
+
+    }
+  }
+}
+@media screen and (max-width:840px) {
+  .topnav {
+    li {
+      display: none;
+      &.icon {
+        float: right;
+        display: inline-block;
+      }
+    }
+    &.responsive {
+      position: relative;
+      li {
+        float: none;
+        display: inline;
+        &.icon {
+          position: absolute;
+          right: 0;
+          top: 0;
+        }
+        &.logo {
+          display: none;
+        }
+      }
+      a {
+        display: block;
+        text-align: left;
+      }
+    }
+  }
+}

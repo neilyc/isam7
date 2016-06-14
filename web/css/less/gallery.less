@@ -1,16 +1,15 @@
 .gallery {
   padding-bottom: 50px;
+  margin: 0 auto;
   .grid {
     padding: 0;
     margin: 0;
     .grid-item {
-      padding: 7px;
+      padding: 5px;
       cursor: pointer;
       width: 25%;
       opacity: 0;
       .image {
-        width: 100%;
-        height: 100%;
         overflow: hidden;
         img {
           width: 100%;
@@ -38,10 +37,27 @@
     }
   }
 }
+
 @-webkit-keyframes fadeIn {
   100% { opacity: 1; }
 }
-
 @keyframes fadeIn {
   100% { opacity: 1; }
 }
+
+@media (min-width: 768px){
+  .gallery {
+      width: 750px;
+  }
+}
+@media (min-width: 992px){
+  .gallery {
+      width: 970px;
+  }
+}
+@media (min-width: 1200px){
+  .gallery {
+      width: 1170px;
+  }
+}
+

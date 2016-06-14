@@ -1,9 +1,9 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-<div class="articles">
+<div class="articles clearfix">
   {% for article in blog %}
-    <div class="article col-md-6">
+    <div class="article">
       <div class="panel panel-default">
         <div class="panel-heading">
           <h3 class="panel-title">{{article.title}}</h3>
