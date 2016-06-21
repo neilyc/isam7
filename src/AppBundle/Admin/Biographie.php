@@ -1,6 +1,6 @@
 <?php
 
-namespace BioBundle\Admin;
+namespace AppBundle\Admin;
 
 use Sonata\AdminBundle\Admin\AbstractAdmin;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
@@ -9,7 +9,7 @@ use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Show\ShowMapper;
 use Sonata\AdminBundle\Route\RouteCollection;
 
-class BiographyAdmin extends AbstractAdmin
+class Biographie extends AbstractAdmin
 {
   /**
    * @param ListMapper $listMapper

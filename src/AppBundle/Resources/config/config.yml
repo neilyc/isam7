@@ -4,6 +4,6 @@ sonata_admin:
       admin:
         label: Administration
         items:
-          - painting.admin.painting
-          - bio.admin.biography
-          - blog.admin.blog
+          - admin.galerie
+          - admin.biographie
+          - admin.blog

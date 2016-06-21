@@ -1,19 +1,19 @@
 <?php
 
-namespace BlogBundle\Controller;
+namespace AppBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 
-class DefaultController extends Controller
+class BlogController extends Controller
 {
   /**
-   * @Route("/")
+   * @Route("/blog", name="blog")
    */
   public function indexAction()
   {
     $blog = $this->getDoctrine()
-      ->getRepository('BlogBundle:Blog')
+      ->getRepository('AppBundle:Blog')
       ->findAll();
         
     if (!$blog) {
@@ -23,16 +23,16 @@ class DefaultController extends Controller
     $context = array(
       'blog' => $blog
     );
-    return $this->render('BlogBundle:Default:index.html.twig', $context);
+    return $this->render('AppBundle:Blog:index.html.twig', $context);
   }
 
   /**
-   * @Route("/{id}")
+   * @Route("/blog/{id}", name="blog_view")
    */
   public function viewAction($id)
   {
     $article = $this->getDoctrine()
-      ->getRepository('BlogBundle:Blog')
+      ->getRepository('AppBundle:Blog')
       ->find($id);
         
     if (!$article) {
@@ -43,6 +43,6 @@ class DefaultController extends Controller
       'article' => $article,
       'images'  => json_decode($article->getImages())
     );
-    return $this->render('BlogBundle:Default:view.html.twig', $context);
+    return $this->render('AppBundle:Blog:view.html.twig', $context);
   }
 }

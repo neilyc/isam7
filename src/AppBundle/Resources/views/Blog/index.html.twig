@@ -11,7 +11,7 @@
         <div class="panel-body">
           <img src="{{ asset('/upload/blog/' ~ article.image) }}" />
             {{article.description}}
-          <a href="{{ path('blog_default_view', {'id': article.id}) }}">Lire la suite</a>
+          <a href="{{ path('blog_view', {'id': article.id}) }}">Lire la suite</a>
         </div>
       </div>
     </div>

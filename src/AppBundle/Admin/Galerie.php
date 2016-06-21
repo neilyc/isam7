@@ -1,6 +1,6 @@
 <?php
 
-namespace PaintingBundle\Admin;
+namespace AppBundle\Admin;
 
 use Sonata\AdminBundle\Admin\AbstractAdmin;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
@@ -9,7 +9,7 @@ use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Show\ShowMapper;
 use Sonata\AdminBundle\Route\RouteCollection;
 
-class PaintingAdmin extends AbstractAdmin
+class Galerie extends AbstractAdmin
 {
   /**
    * @param ListMapper $listMapper
@@ -18,7 +18,7 @@ class PaintingAdmin extends AbstractAdmin
   {
     $listMapper
       ->add('name', null, array('label' => 'Nom'))
-      ->add('image', null, array('template' => 'PaintingBundle:Admin:image.html.twig', 'label' => 'Image'))
+      ->add('image', null, array('template' => 'AppBundle:Admin:galerie_image.html.twig', 'label' => 'Image'))
       ->add('_action', 'actions', array(
         'actions' => array(
           'edit' => array(),

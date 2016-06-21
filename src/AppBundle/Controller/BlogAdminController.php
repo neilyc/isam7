@@ -1,10 +1,10 @@
 <?php
 
-namespace BlogBundle\Controller;
+namespace AppBundle\Controller;
 
 use Sonata\AdminBundle\Controller\CRUDController;
 
-class AdminController extends CRUDController
+class BlogAdminController extends CRUDController
 {
     /**
      * Edit action.

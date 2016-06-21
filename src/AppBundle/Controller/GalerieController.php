@@ -1,19 +1,19 @@
 <?php
 
-namespace PaintingBundle\Controller;
+namespace AppBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 
-class DefaultController extends Controller
+class GalerieController extends Controller
 {
   /**
-   * @Route("/")
+   * @Route("/galerie", name="galerie")
    */
   public function indexAction()
   {
     $paintings = $this->getDoctrine()
-      ->getRepository('PaintingBundle:Painting')
+      ->getRepository('AppBundle:Galerie')
       ->findAll();
         
     if (!$paintings) {
@@ -23,6 +23,6 @@ class DefaultController extends Controller
     $context = array(
       'paintings' => $paintings
     );
-    return $this->render('PaintingBundle:Default:index.html.twig', $context);
+    return $this->render('AppBundle:Galerie:index.html.twig', $context);
   }
 }

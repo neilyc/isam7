@@ -1,14 +1,14 @@
 <?php
-namespace PaintingBundle\Entity;
+namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 /**
  * @ORM\Entity
- * @ORM\Table(name="painting")
+ * @ORM\Table(name="biography")
  */
-class Painting
+class Biographie
 {
     /**
      * @ORM\Column(type="integer")
@@ -20,7 +20,7 @@ class Painting
     /**
      * @ORM\Column(type="string", length=100)
      */
-    protected $name;
+    protected $filename;
 
     /**
      * @ORM\Column(type="text")
@@ -28,20 +28,10 @@ class Painting
     protected $description;
 
     /**
-     * @ORM\Column(type="string", length=100)
-     */
-    protected $filename;
-
-    /**
-     * @ORM\Column(type="string", length=100)
-     */
-    protected $categories;
-
-    /**
      * Unmapped property to handle file uploads
      */
     private $file;
-    
+
     /**
      * Get id
      *
@@ -53,59 +43,11 @@ class Painting
     }
 
     /**
-     * Set name
-     *
-     * @param string $name
-     *
-     * @return Painting
-     */
-    public function setName($name)
-    {
-        $this->name = $name;
-
-        return $this;
-    }
-
-    /**
-     * Get name
-     *
-     * @return string
-     */
-    public function getName()
-    {
-        return $this->name;
-    }
-
-    /**
-     * Set description
-     *
-     * @param string $description
-     *
-     * @return Painting
-     */
-    public function setDescription($description)
-    {
-        $this->description = $description;
-
-        return $this;
-    }
-
-    /**
-     * Get description
-     *
-     * @return string
-     */
-    public function getDescription()
-    {
-        return $this->description;
-    }
-
-    /**
      * Set filename
      *
      * @param string $filename
      *
-     * @return Painting
+     * @return Biography
      */
     public function setFilename($filename)
     {
@@ -123,29 +65,29 @@ class Painting
     {
         return $this->filename;
     }
-    
+
     /**
-     * Set categories
+     * Set description
      *
-     * @param string $categories
+     * @param string $description
      *
-     * @return Painting
+     * @return Biography
      */
-    public function setCategories($categories)
+    public function setDescription($description)
     {
-        $this->categories = $categories;
+        $this->description = $description;
 
         return $this;
     }
 
     /**
-     * Get categories
+     * Get description
      *
      * @return string
      */
-    public function getCategories()
+    public function getDescription()
     {
-        return $this->categories;
+        return $this->description;
     }
 
     /**
@@ -176,7 +118,7 @@ class Painting
         $filename = date('dmYHis').'.'.$this->getFile()->guessExtension();
 
         $this->getFile()->move(
-            __DIR__ . '/../../../web/upload/paintings',
+            __DIR__ . '/../../../web/upload/bio',
             $filename
         );
 
@@ -187,6 +129,6 @@ class Painting
 
     public function __toString()
     {
-        return $this->name;
+        return "Biographie";
     }
 }

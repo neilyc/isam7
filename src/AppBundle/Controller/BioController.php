@@ -1,19 +1,19 @@
 <?php
 
-namespace BioBundle\Controller;
+namespace AppBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 
-class DefaultController extends Controller
+class BioController extends Controller
 {
   /**
-   * @Route("/")
+   * @Route("/biographie", name="biographie")
    */
   public function indexAction()
   {
     $bio = $this->getDoctrine()
-      ->getRepository('BioBundle:Biography')
+      ->getRepository('AppBundle:Biographie')
       ->find(1);
         
     if (!$bio) {
@@ -24,6 +24,6 @@ class DefaultController extends Controller
       'bio' => $bio
     );
     
-    return $this->render('BioBundle:Default:index.html.twig', $context);
+    return $this->render('AppBundle:Bio:index.html.twig', $context);
   }
 }

@@ -28,9 +28,6 @@ class AppKernel extends Kernel
       new Knp\Bundle\MenuBundle\KnpMenuBundle(),
 
       new AppBundle\AppBundle(),
-      new BioBundle\BioBundle(),
-      new BlogBundle\BlogBundle(),
-      new PaintingBundle\PaintingBundle(),
     ];
 
     if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

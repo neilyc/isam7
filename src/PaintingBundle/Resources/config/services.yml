@@ -1,6 +1,0 @@
-services:
-  painting.admin.painting:
-    class: PaintingBundle\Admin\PaintingAdmin
-    arguments: [~, PaintingBundle\Entity\Painting, SonataAdminBundle:CRUD]
-    tags:
-        - { name: sonata.admin, manager_type: orm, group: admin, label: Galerie }
