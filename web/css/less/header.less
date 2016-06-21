@@ -15,12 +15,18 @@
       float: right;
       display: inline-block;
       cursor: pointer;
-      font-size: 25px;
+      font-size: 35px;
       color: #000;
+      margin-top: 15px;
     }
     &.logo-sm {
       display: inline-block;
       padding: 10px 0;
+    }
+    a {
+      &:hover, &.current {
+        color: @isam-blue;
+      }
     }
   }
   &.responsive {

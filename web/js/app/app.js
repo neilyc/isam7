@@ -14,6 +14,7 @@
       if(document.querySelector('.gallery')) {
         self._initGallery();
       }
+      
       if(document.querySelector('.blog')) {
         self._initBlog();
       }

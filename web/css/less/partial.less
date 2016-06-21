@@ -26,7 +26,7 @@ body {
       margin: 0 auto;
       border-radius: 50%;
       border: 2px solid transparent;
-      border-top-color: #3498db;
+      border-top-color: @isam-blue;
       -webkit-animation: spin 2.5s linear infinite;
       animation: spin 2.5s linear infinite;
       z-index: 101;
@@ -64,23 +64,15 @@ body {
   a {
     color: #666;
     text-decoration: none;
-    &:hover {
-      color: #000;
-      text-decoration: none;
-    }
-    &:active {
-      color: #000;
-      text-decoration: none;
-    }
-    &:focus {
-      color: #000;
+    &:hover, &:active, &:focus, &.active {
+      color: @isam-blue;
       text-decoration: none;
     }
   }
   .content {
-    padding: 20px 10px 50px 10px;
+    padding: 0px 10px 50px 10px;
     @media @tablet {
-      padding: 105px 10px;
+      padding: 85px 10px;
     }
   }
   .footer {
@@ -104,8 +96,8 @@ body {
       top: 0;
       width: 25px;
       height: 50px;
-      background: #fd3;
-      border-left: 1px solid #fff;
+      background: #f9c922;
+      border-left: 1px solid #e74c3c;
     } 
   } 
   .background-cover-index {
@@ -118,10 +110,13 @@ body {
     height: 100%;
     left: 0;
     .isam {
-      position: absolute;
-      top: 250px;
-      left: 150px;
-      text-align: center;
+      position: relative;
+      @media @phone {
+        position: absolute;
+        top: 250px;
+        left: 150px;
+        text-align: center;
+      }
       p {
         display: inline-block;
         background: rgba(0,0,0,0.55);
@@ -137,11 +132,11 @@ body {
     }
   }
   div.soon {
-    padding-top: 60px !important;
+    line-height: 1;
     p {
       &.soon {
         text-align: center;
-        color: #2535a5;
+        color: @isam-blue;
       }
     }
   }

@@ -9,22 +9,22 @@ class AppKernel extends Kernel
   {
     $bundles = [
       new Symfony\Bundle\FrameworkBundle\FrameworkBundle(),
-      new Symfony\Bundle\SecurityBundle\SecurityBundle(),
-      new Symfony\Bundle\TwigBundle\TwigBundle(),
       new Symfony\Bundle\MonologBundle\MonologBundle(),
+      new Symfony\Bundle\SecurityBundle\SecurityBundle(),
       new Symfony\Bundle\SwiftmailerBundle\SwiftmailerBundle(),
+      new Symfony\Bundle\TwigBundle\TwigBundle(),
 
       new Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
 
       new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
 
       new FOS\UserBundle\FOSUserBundle(),
-      
-      new Sonata\CoreBundle\SonataCoreBundle(),
-      new Sonata\BlockBundle\SonataBlockBundle(),
-      new Sonata\DoctrineORMAdminBundle\SonataDoctrineORMAdminBundle(),
-      new Sonata\AdminBundle\SonataAdminBundle(),
 
+      new Sonata\AdminBundle\SonataAdminBundle(),
+      new Sonata\BlockBundle\SonataBlockBundle(),
+      new Sonata\CoreBundle\SonataCoreBundle(),
+      new Sonata\DoctrineORMAdminBundle\SonataDoctrineORMAdminBundle(),
+      
       new Knp\Bundle\MenuBundle\KnpMenuBundle(),
 
       new AppBundle\AppBundle(),
