@@ -40,7 +40,7 @@ class Biographie extends AbstractAdmin
   {
     $collection
       ->remove('export')
-      ->remove('create')
+      //->remove('create')
       ->remove('delete')
     ;
   }
