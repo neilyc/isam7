@@ -29,9 +29,9 @@ class Blog extends AbstractAdmin
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
-            ->add('title')
-            ->add('image')
-            ->add('images')
+            ->add('title', null, array('label' => 'Titre'))
+            ->add('image', null, array('template' => 'AppBundle:Admin:blog_image.html.twig', 'label' => 'Image'))
+            ->add('images', null, array('template' => 'AppBundle:Admin:blog_images.html.twig', 'label' => 'Images'))
             ->add('description')
             ->add('_action', null, array(
                 'actions' => array(

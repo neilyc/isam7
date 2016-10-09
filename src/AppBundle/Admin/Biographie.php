@@ -32,7 +32,7 @@ class Biographie extends AbstractAdmin
   {
     $formMapper
       ->add('file', 'file', array('required'=>false,'label'=> "Image"))
-      ->add('description')
+      ->add('description', 'textarea', array('attr' => array('class' => 'ckeditor')))
     ;
   }
 

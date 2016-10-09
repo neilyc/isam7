@@ -1,0 +1,5 @@
+<td>
+  {% for photo in object.images|json_decode %}
+    <img src="/upload/blog/{{ photo }}" style="width: 100px" alt="">
+  {% endfor %}
+</td>

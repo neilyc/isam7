@@ -81,3 +81,5 @@ sonata_block:
 
 sonata_admin:
     title: 'ISAM'
+    templates:
+        layout:       AppBundle:Admin:layout.html.twig
