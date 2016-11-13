@@ -1,0 +1,25 @@
+{% extends 'AdminBundle::base.html.twig' %}
+
+{% block body %}
+<div class="form">
+  <form action="{{ path('admin_galerie_save') }}" method="post" enctype="multipart/form-data">
+    <input type="hidden" value="{{ painting.id }}" name="id">
+    <div class="row">
+      <label for="name">Nom</label><br />
+      <input type="text" value="{{ painting.name }}" name="name">
+    </div>
+    <div class="row">
+      <label for="description">Description</label><br />
+      <textarea type="text" name="description">{{ painting.description }}</textarea>
+    </div>
+    <div class="row">
+      <label for="filename">Photo</label><br />
+      <input type="file" name="filename">
+      {% if painting.filename %}
+        <br /><img src="/upload/paintings/{{ painting.filename }}" />
+      {% endif %}
+    </div>
+    <button class="btn btn-success">Sauvegarder</button>
+  </form>
+</div>
+{% endblock %}

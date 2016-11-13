@@ -1,0 +1,10 @@
+{% extends 'AdminBundle::base.html.twig' %}
+{% block body %}
+{% if bio %}
+  <a href="{{ path('admin_bio_edit') }}" class="btn btn-success right">Modifier</a>
+  <img src="/upload/bio/{{ bio.filename }}" style="width: 100%">
+  <span>{{bio.description|raw}}</span>
+{% else %}
+  <a href="{{ path('admin_bio_edit') }}" class="btn btn-info">Créer</a>
+{% endif %}
+{% endblock %}

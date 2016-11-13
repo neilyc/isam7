@@ -15,6 +15,16 @@ gulp.task('css', function() {
   .pipe(gulp.dest('./web/css'));
 });
 
+gulp.task('css.admin', function() {
+  gulp.src([
+    './web/css/less/admin/styles.less',
+  ])
+  .pipe(concat('styles.min.css'))
+  .pipe(less())
+  .pipe(minifyCSS())
+  .pipe(gulp.dest('./web/css/admin'));
+});
+
 gulp.task('js', function() {
   gulp.src([
     // lib
@@ -24,6 +34,7 @@ gulp.task('js', function() {
     './web/js/lib/classie.js',
     './web/js/lib/AnimOnScroll.js',
     './web/js/lib/swiper.min.js',
+    
     // app
     './web/js/app/modal.js',
     './web/js/app/app.js'
@@ -33,18 +44,33 @@ gulp.task('js', function() {
   .pipe(gulp.dest('./web/js/'));
 });
 
+gulp.task('js.admin', function() {
+  gulp.src([
+    // lib
+    './web/js/lib/tinymce/lang/*.js',
+
+    // app
+    './web/js/app/admin/app.js'
+  ])
+  .pipe(concat('app.min.js'))
+  .pipe(uglify())
+  .pipe(gulp.dest('./web/js/admin/'));
+});
+
 gulp.task('watch', function () {
   gulp.watch([
-    './web/css/less/*.less',
-  ], ['css']);
+    './web/css/less/**/*.less',
+  ], ['css', 'css.admin']);
   gulp.watch([
-    './web/js/app/*.js',
+    './web/js/app/**/*.js',
     './web/js/lib/*.js',
-  ], ['js']);
+  ], ['js', 'js.admin']);
 });
 
 gulp.task('default', [
   'css',
+  'css.admin',
   'js',
+  'js.admin',
   'watch'
 ]);

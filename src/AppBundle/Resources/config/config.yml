@@ -1,9 +1,0 @@
-sonata_admin:
-  dashboard:
-    groups:
-      admin:
-        label: Administration
-        items:
-          - admin.galerie
-          - admin.biographie
-          - admin.blog

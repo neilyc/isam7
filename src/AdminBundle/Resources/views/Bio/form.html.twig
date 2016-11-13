@@ -1,0 +1,19 @@
+{% extends 'AdminBundle::base.html.twig' %}
+{% block body %}
+<div class="form">
+  <form action="{{ path('admin_bio_save') }}" method="post" enctype="multipart/form-data">
+    <div class="row">
+      <label for="description">Description</label><br />
+      <textarea type="text" name="description">{{ bio.description }}</textarea>
+    </div>
+    <div class="row">
+      <label for="filename">Photo</label><br />
+      <input type="file" name="filename">
+      {% if bio.filename %}
+        <br /><img src="/upload/bio/{{ bio.filename }}" />
+      {% endif %}
+    </div>
+    <button class="btn btn-success">Sauvegarder</button>
+  </form>
+</div>
+{% endblock %}

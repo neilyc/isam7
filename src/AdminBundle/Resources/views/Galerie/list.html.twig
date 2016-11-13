@@ -1,0 +1,29 @@
+{% extends 'AdminBundle::base.html.twig' %}
+
+{% block body %}
+  <b>TABLEAUX</b>
+  <a href="{{ path('admin_galerie_new') }}" class="btn btn-info right">Ajouter</a>
+{% if paintings %}
+  <table>
+    <tr>
+      <th>Nom</th>
+      <th>Image</th>
+      <th>Actions</th>  
+    </tr>          
+    {% for painting in paintings %}
+      <tr class="painting">
+        <td>{{painting.name}}</td>
+        <td>        
+          {% if painting.filename %}
+            <img src="/upload/paintings/{{ painting.filename }}" />
+          {% endif %}
+        </td>
+        <td>
+          <a href="{{ path('admin_galerie_edit',  { 'id': painting.id }) }}" class="btn btn-success edit">Modifier</a> <br>
+          <a href="{{ path('admin_galerie_delete',  { 'id': painting.id }) }}" class="btn btn-danger delete">Supprimer</a>
+        </td>
+      </tr>
+    {% endfor %}
+  </table>
+{% endif %}
+{% endblock %}

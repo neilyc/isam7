@@ -16,9 +16,9 @@ class BlogController extends Controller
       ->getRepository('AppBundle:Blog')
       ->findAll();
         
-    //if (!$blog) {
+    if (!$blog) {
       return $this->render('AppBundle:Partials:progress.html.twig');
-    //}
+    }
 
     $context = array(
       'blog' => $blog

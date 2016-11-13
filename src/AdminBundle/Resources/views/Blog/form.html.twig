@@ -1,0 +1,25 @@
+{% extends 'AdminBundle::base.html.twig' %}
+
+{% block body %}
+<div class="form">
+  <form action="{{ path('admin_blog_save') }}" method="post" enctype="multipart/form-data">
+    <input type="hidden" value="{{ blog.id }}" name="id">
+    <div class="row">
+      <label for="title">Nom</label><br />
+      <input type="text" value="{{ blog.title }}" name="title">
+    </div>
+    <div class="row">
+      <label for="description">Description</label><br />
+      <textarea type="text" name="description">{{ blog.description }}</textarea>
+    </div>
+    <div class="row">
+      <label for="image">Photo</label><br />
+      <input type="file" name="image">
+      {% if blog.image %}
+        <br /><img src="/upload/blog/{{ blog.image }}" />
+      {% endif %}
+    </div>
+    <button class="btn btn-success">Sauvegarder</button>
+  </form>
+</div>
+{% endblock %}

@@ -1,0 +1,57 @@
+.btn {
+  display: inline-block;
+  margin-bottom: 0;
+  text-align: center;
+  vertical-align: middle;
+  touch-action: manipulation;
+  cursor: pointer;
+  background-image: none;
+  white-space: nowrap; 
+  text-decoration: none;
+  padding: 6px 12px;
+  border-radius: 4px;
+  transition: 0.3s;
+
+  border: 1px solid #ccc;
+  background-color: #fff;
+  color: #eee;
+
+  &:hover {
+    background-color: #e6e6e6;
+    border-color: #adadad;
+  }
+
+
+  &.btn-info {
+    color: #fff;
+    background-color: #5bc0de;
+    border-color: #46b8da;   
+
+    &:hover {
+      background-color: #31b0d5;
+      border-color: #269abc;    
+    }
+  }
+
+  &.btn-success {
+    color: #fff;
+    background-color: @green;
+    border-color: #4cae4c; 
+
+    &:hover {
+      background-color: #449d44;
+      border-color: #398439;
+    }
+  }
+
+  &.btn-danger {
+    color: #fff;
+    background-color: #d9534f;
+    border-color: #d43f3a; 
+
+    &:hover {
+      background-color: #c9302c;
+      border-color: #ac2925;  
+    }
+  }
+}
