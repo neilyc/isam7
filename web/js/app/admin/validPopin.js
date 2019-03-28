@@ -1,4 +1,4 @@
-'use strict';
+
 class ValidPopin {
   constructor() {
     this.popin = document.querySelector('.cd-popup.valid');

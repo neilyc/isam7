@@ -33,15 +33,16 @@ class Galerie
     protected $filename;
 
     /**
-     * @ORM\Column(type="string", length=100)
-     */
-    protected $categories;
-
-    /**
      * Unmapped property to handle file uploads
      */
     private $file;
-    
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Serie", inversedBy="paintings")
+     * @ORM\JoinColumn(name="serie_id", referencedColumnName="id")
+     */
+    private $serie;
+
     /**
      * Get id
      *
@@ -123,31 +124,7 @@ class Galerie
     {
         return $this->filename;
     }
-    
-    /**
-     * Set categories
-     *
-     * @param string $categories
-     *
-     * @return Painting
-     */
-    public function setCategories($categories)
-    {
-        $this->categories = $categories;
-
-        return $this;
-    }
-
-    /**
-     * Get categories
-     *
-     * @return string
-     */
-    public function getCategories()
-    {
-        return $this->categories;
-    }
-
+ 
     /**
      * Sets file.
      *
@@ -188,5 +165,29 @@ class Galerie
     public function __toString()
     {
         return $this->name;
+    }
+
+    /**
+     * Set serie
+     *
+     * @param \AppBundle\Entity\serie $serie
+     *
+     * @return Galerie
+     */
+    public function setSerie(\AppBundle\Entity\serie $serie = null)
+    {
+        $this->serie = $serie;
+
+        return $this;
+    }
+
+    /**
+     * Get serie
+     *
+     * @return \AppBundle\Entity\serie
+     */
+    public function getSerie()
+    {
+        return $this->serie;
     }
 }

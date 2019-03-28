@@ -1,5 +1,4 @@
 ;(function(window) {
-  'use strict';
   var modal, modalImg, close, self;
   function Modal(elem, options) {
     self = this;

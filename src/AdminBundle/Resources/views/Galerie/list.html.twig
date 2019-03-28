@@ -20,7 +20,7 @@
         </td>
         <td>
           <a href="{{ path('admin_galerie_edit',  { 'id': painting.id }) }}" class="btn btn-success edit">Modifier</a> <br>
-          <a href="{{ path('admin_galerie_delete',  { 'id': painting.id }) }}" class="btn btn-danger delete">Supprimer</a>
+          <a href="{{ path('admin_galerie_delete',  { 'id': painting.id }) }}" class="btn btn-danger delete" onclick="return confirm('Supprimer ce tableau ?');">Supprimer</a>
         </td>
       </tr>
     {% endfor %}

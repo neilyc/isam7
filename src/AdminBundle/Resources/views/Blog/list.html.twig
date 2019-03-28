@@ -20,7 +20,7 @@
         </td>
         <td>
           <a href="{{ path('admin_blog_edit',  { 'id': blog.id }) }}" class="btn btn-success edit">Modifier</a> <br>
-          <a href="{{ path('admin_blog_delete',  { 'id': blog.id }) }}" class="btn btn-danger delete">Supprimer</a>
+          <a href="{{ path('admin_blog_delete',  { 'id': blog.id }) }}" class="btn btn-danger delete" onclick="return confirm('Supprimer ce blog ?');">Supprimer</a>
         </td>
       </tr>
     {% endfor %}

@@ -1,0 +1,17 @@
+{% extends 'AppBundle::base.html.twig' %}
+
+{% block body %}
+  <section class="gallery_view">
+    <a href="{{ path('galerie') }}">< Retour à la liste des séries</a>
+    <br>
+    <ul class="grid" id="grid">
+      {% for item in paintings %}
+        <li class="grid-item">
+          <div class="image">
+            <img class="img" src="/upload/paintings/{{ item.filename }}">
+          </div>
+        </li>
+      {% endfor %}
+    </ul>
+  </section>
+{% endblock %}

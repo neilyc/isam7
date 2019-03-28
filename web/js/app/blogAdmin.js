@@ -1,5 +1,4 @@
 ;(function(window) {
-  'use strict';
   var self;
   function BlogAdmin() {
     self = this;

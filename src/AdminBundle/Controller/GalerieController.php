@@ -33,8 +33,16 @@ class GalerieController extends Controller
    */
   public function newAction()
   {
+    $series = $this->getDoctrine()
+      ->getRepository('AppBundle:Serie')
+      ->findAll();
+
+    if (!$series) {
+      $series = array();
+    }
     $context = array(
       'painting' => new Galerie(),
+      'series' => $series
     );
     return $this->render('AdminBundle:Galerie:form.html.twig', $context);
   }
@@ -48,8 +56,16 @@ class GalerieController extends Controller
       ->getRepository('AppBundle:Galerie')
       ->find($id);
 
+    $series = $this->getDoctrine()
+      ->getRepository('AppBundle:Serie')
+      ->findAll();
+
+    if (!$series) {
+      $series = array();
+    }
     $context = array(
       'painting' => $painting,
+      'series' => $series
     );
     return $this->render('AdminBundle:Galerie:form.html.twig', $context);
   }
@@ -74,7 +90,12 @@ class GalerieController extends Controller
       $painting->setFile($request->files->get('filename'));
       $painting->uploadImage();
     }
-    $painting->setCategories('categorie');
+
+    $serie = $this->getDoctrine()
+        ->getRepository('AppBundle:Serie')
+        ->find($request->request->get('serie'));
+
+    $painting->setSerie($serie);
 
     $em = $this->getDoctrine()->getManager();
     $em->persist($painting);

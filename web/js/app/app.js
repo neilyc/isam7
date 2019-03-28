@@ -1,5 +1,4 @@
 ;(function(window) {
-  'use strict';
   var self;
   function App() {
     self = this;
@@ -11,7 +10,7 @@
         document.querySelector('.topnav').classList.toggle("responsive");
       });
 
-      if(document.querySelector('.gallery')) {
+      if(document.querySelector('.gallery_view')) {
         self._initGallery();
       }
       

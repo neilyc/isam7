@@ -2,7 +2,7 @@ var gulp = require('gulp'),
 concat = require('gulp-concat'),
 less = require('gulp-less'),
 minifyCSS = require('gulp-minify-css'),
-uglify = require('gulp-uglify');
+uglify = require('gulp-uglify-es').default;
 
 
 gulp.task('css', function() {

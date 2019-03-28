@@ -13,6 +13,18 @@
       <textarea type="text" name="description">{{ painting.description }}</textarea>
     </div>
     <div class="row">
+      <label for="serie">Série</label><br />
+      <select name="serie" id="serie">
+          <option value="">Choisir une série</option>
+        {% for item in series %}
+          <option 
+            value="{{item.id}}"
+            {% if painting.serie and painting.serie.id == item.id %}selected{% endif %}
+          >{{item.name}}</option>
+        {% endfor %}
+      </select>
+    </div>
+    <div class="row">
       <label for="filename">Photo</label><br />
       <input type="file" name="filename">
       {% if painting.filename %}
