@@ -6,38 +6,76 @@
       .serie {
         display: block;
         border: 1px solid #666;
-        padding-top: 15px;
+        height: 100%;
+        position: relative;
         cursor: pointer;
+        overflow: hidden;
+        .background-cover {
+          width: 100%;
+          height: 100%;
+          transition: .2s;
+        }
         .overlay {
           transition: .5s ease;
           opacity: 0;
           position: absolute;
-          top: 50%;
-          left: 50%;
-          transform: translate(-50%, -50%);
-          -ms-transform: translate(-50%, -50%);
-          text-align: center;
-        }
-        .text {
-          background-color: @isam-blue;
-          color: #fff;
-          padding: 16px 32px;
-        }
-        img {
-          display: block;
-          margin: 0 auto;
-          max-width:100%;
-          max-height:200px;
-          width: auto;
-          height: auto;
+          top: 0;
+          left: 0;
+          padding: 15px;
+          width: 100%;
+          height: 100%;
+
+          .overlay_inner {
+            transition: .5s ease;
+            width: 100%;
+            height: 100%;
+            padding: 35px;
+            opacity: 0;
+            
+            div {
+              color: #fff;
+
+
+              &.text {
+                text-transform: uppercase;
+              }
+
+              &.link {
+                transition: .2s ease;
+                position: absolute;
+                border: 2px solid @isam-blue;
+                color: @isam-blue;
+                padding: 10px 0px;
+                border-radius: 3px;
+                left: 0;
+                right: 0;
+                bottom: 50px;
+                margin-left: 50px;
+                margin-right: 50px;
+
+                &:hover {
+                  background: @isam-blue;
+                  color: #fff;
+                }
+              }
+            }
+          }
         }
         &:hover { 
           border: 1px solid @isam-blue;
-          .img {
-            opacity: 0.3;
+          .background-cover {
+            -webkit-transform: scale(1.20);
+            -ms-transform: scale(1.20);
+            -o-transform: scale(1.20);
+            transform: scale(1.20);
+            transition: 15s; 
           }
           .overlay {
             opacity: 1;
+            .overlay_inner {
+              opacity: 1;
+              background:  rgba(25,25,29,0.9);
+            }
           }
         }
       }

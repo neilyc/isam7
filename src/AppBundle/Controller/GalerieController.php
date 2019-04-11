@@ -12,7 +12,7 @@ class GalerieController extends Controller
    */
   public function indexAction()
   {
-    $series = $this->getDoctrine()
+    /*$series = $this->getDoctrine()
       ->getRepository('AppBundle:Serie')
       ->findAll();
         
@@ -23,7 +23,21 @@ class GalerieController extends Controller
     $context = array(
       'series' => $series
     );
-    return $this->render('AppBundle:Galerie:index.html.twig', $context);
+    return $this->render('AppBundle:Galerie:index.html.twig', $context);*/
+    $paintings = $this->getDoctrine()
+      ->getRepository('AppBundle:Galerie')
+      ->findAll();
+        
+    //$paintings = $paintings->getPaintings();
+
+    if (!$paintings) {
+      $paintings = array();
+    }
+
+    $context = array(
+      'paintings' => $paintings
+    );
+    return $this->render('AppBundle:Galerie:view.html.twig', $context);
   }
 
   /**

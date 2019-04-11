@@ -1,9 +1,10 @@
 ;(function(window) {
-  var modal, modalImg, close, self;
+  var modal, self, closeModal;
   function Modal(elem, options) {
     self = this;
     self.elem = elem;
     self._init();
+    closeModal = true;
     self.options = extend( self.defaults, options );
 
     if(self.elem) {;
@@ -11,32 +12,35 @@
         item.addEventListener('click', self._open);
       });
     }
-
+    /*modal.querySelector('.imgs').addEventListener('click', function(e) {
+      closeModal = false;
+      setTimeout(function(){ 
+        closeModal = true;
+      }, 300);
+    });*/
     modal.addEventListener('click', self._close);
   };
   Modal.prototype = {
     defaults : {},
     _init : function() {
-      modal = document.createElement("div");
-      modal.className = "gallery-modal";
-
-      close = document.createElement("span");
-      close.className = "close";
-      close.innerHTML = "&times;";
-
-      modalImg = document.createElement("img");
-      modalImg.className = "gallery-modal-content";
-
-      modal.appendChild(close);
-      modal.appendChild(modalImg);
-      document.body.appendChild(modal);    
+      modal = document.querySelector("div.gallery-modal");
     },
     _open : function(e) {
-      modalImg.src = e.target.src;
+      /*Array.prototype.forEach.call(modal.querySelectorAll(".imgs-item"), function(item) {
+        item.style.border = "0";
+        item.style.margin = "5px";
+        if(item.querySelector('img').src == e.target.src) {
+          item.style.border = "1px solid white";
+          item.style.margin = "4px";
+        }
+      });*/
+      modal.querySelector('img.gallery-modal-content').src = e.target.src;
       modal.style.display = "block";  
     },
     _close : function() {
-      modal.style.display = "none";
+      if(closeModal) {
+        modal.style.display = "none";
+      }
     },
     open : function(e) {
       if(e.target.classList.contains('img')) {
