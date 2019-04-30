@@ -48,8 +48,12 @@ gulp.task('js.admin', function() {
   gulp.src([
     // lib
     './web/js/lib/tinymce/lang/*.js',
+    './web/js/lib/axios.js',
+
 
     // app
+    './web/js/app/admin/serie.js',
+    './web/js/app/admin/modal.js',
     './web/js/app/admin/app.js'
   ])
   .pipe(concat('app.min.js'))

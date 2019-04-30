@@ -1,0 +1,50 @@
+{% extends 'AdminBundle::base.html.twig' %}
+
+{% block body %}
+<div class="form serie">
+  <form action="{{ path('admin_serie_save') }}" method="post" enctype="multipart/form-data">
+    <input type="hidden" value="{{ serie.id }}" name="id">
+    <div class="row">
+      <label for="name">Nom</label><br />
+      <input type="text" value="{{ serie.name }}" name="name">
+    </div>
+    <div class="row">
+      <input type="hidden" name="delete-paintings" value="">
+      <input type="hidden" name="new-paintings" value="">
+      <label for="name">Tableaux de la série</label><br />
+      <a href="{{ path('admin_serie_paintings') }}" class="btn btn-info add-paintings">Ajouter un tableau</a>
+      <ul class="col-xs-12 paintings">
+        {% for item in serie.paintings %}
+          {% set filename =  "/upload/paintings/" ~ item.filename  %}
+          <li data-id="{{item.id}}">
+            <div class="actions">
+              <a class="ico less"></a>
+              <a class="ico add"></a>
+            </div>
+            <div class="paiting">
+              <div class="background-cover" style='background: url({{filename}}) center center no-repeat; -moz-background-size: cover; -webkit-background-size: cover; background-size: cover;'> 
+              </div>
+            </div>
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+    <button class="btn btn-success">Sauvegarder</button>
+    <div id="modal-add-paintings" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <span class="close">&times;</span>
+        <h2>Ajouter des tableaux à la série</h2>
+      </div>
+      <div class="modal-body">
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-success valide">Valider</button>
+        <a class="btn btn-danger close">Annuler</a>
+      </div>
+    </div>
+  </div>
+  </form>
+</div>
+
+{% endblock %}

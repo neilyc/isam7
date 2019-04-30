@@ -1,0 +1,81 @@
+.ico {
+	&:after,&:before {
+		content: "";
+		top: 50%;
+		position: absolute;
+	}
+	&.delete {
+		width: 16px;
+		height: 16px;
+		-webkit-border-radius: 16px;
+		-moz-border-radius: 16px;
+		border-radius: 16px;
+		background-color: #c9302c;
+		display: block;
+		position: relative;
+		&:after, &:before {
+			left: 3px;
+			width: 10px;
+			height: 2px;
+			margin-top: -1px;
+			background: #fff;
+			-webkit-transform: rotate(45deg);
+			-moz-transform: rotate(45deg);
+			-ms-transform: rotate(45deg);
+			-o-transform: rotate(45deg);
+			transform: rotate(45deg);
+		}
+		&:before {
+			z-index: 10;
+			left: 7px;
+			width: 2px;
+			height: 10px;
+			margin-top: -5px;
+		}
+	}
+	&.add {
+		width: 16px;
+		height: 16px;
+		-webkit-border-radius: 16px;
+		-moz-border-radius: 16px;
+		border-radius: 16px;
+		display: block;
+		position: relative;
+		background-color: #398439;
+		&:after, &:before {
+			z-index: 10;
+			left: 7px;
+			width: 2px;
+			height: 10px;
+			margin-top: -5px;
+			background: #fff;
+			
+		}
+		&:before {
+			left: 3px;
+			width: 10px;
+			height: 2px;
+			margin-top: -1px;
+			background: #fff;
+		}
+	}
+	&.less {
+		width: 16px;
+		height: 16px;
+		-webkit-border-radius: 16px;
+		-moz-border-radius: 16px;
+		border-radius: 16px;
+		display: block;
+		position: relative;
+		background-color: #c9302c;
+		&:before {
+			z-index: 10;
+			left: 3px;
+			width: 10px;
+			height: 2px;
+			margin-top: -1px;
+			background: #fff;
+			
+		}
+	}
+}

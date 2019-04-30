@@ -8,9 +8,9 @@
     _init: function() {   
       self._initNav();
 
-      /*if(document.querySelector('.list')) {
-        var validPopin = new ValidPopin();
-      }*/
+      if(document.querySelector('.form.serie')) {
+        new Serie();
+      }
 
       window.onload = function() {
         tinymce.init({ 

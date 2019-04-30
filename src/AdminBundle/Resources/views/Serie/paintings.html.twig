@@ -1,0 +1,21 @@
+<div class="paintings-modal">
+	{% if paintings|length %}
+		<ul class="col-xs-12 paintings">
+			{% for item in paintings %}
+				{% set filename =  "/upload/paintings/" ~ item.filename  %}
+				<li data-id="{{item.id}}">
+					<div class="actions">
+						<a class="ico add"></a>
+						<a class="ico less"></a>
+					</div>
+					<div class="paiting">
+						<div class="background-cover" style='background: url({{filename}}) center center no-repeat; -moz-background-size: cover; -webkit-background-size: cover; background-size: cover;'> 
+						</div>
+					</div>
+				</li>
+			{% endfor %}
+		</ul>
+	{% else %}
+		<b>Il n'y a pas de tableau non attribués à une série.</b>
+	{% endif %}
+</div>

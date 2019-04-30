@@ -1,0 +1,67 @@
+.form.serie, #modal-add-paintings {
+	ul {
+    li {
+      height: 250px;
+			text-align: center;
+			width: 30%;
+			display: inline-block;
+			position: relative;
+			margin-right: 10px;
+      .paiting {
+        display: block;
+        border: 1px solid #666;
+        height: 100%;
+        position: relative;
+        overflow: hidden;
+        .background-cover {
+          width: 100%;
+          height: 100%;
+					transition: .2s;
+				}
+				.revert {
+					transition: .2s;
+					opacity: 0;
+					position: absolute;
+					display: none;
+					top: 50%;
+					left: 0;
+					right: 0;
+					margin: 0 40px;
+				}
+			}
+			.actions {
+				position: absolute;
+				top: -7px;
+				right: -7px;
+				z-index: 1;
+				.ico {
+					cursor: pointer;
+					&.add {
+						display: none;
+					}
+				}
+			}
+    }
+  }
+}
+#modal-add-paintings {
+	ul {
+    li {
+      .paiting {
+        .background-cover {
+					opacity: .5;
+				}
+			}
+			.actions {
+				.ico {
+					&.add {
+						display: block;
+					}
+					&.less {
+						display: none;
+					}
+				}
+			}
+		}
+	}
+}

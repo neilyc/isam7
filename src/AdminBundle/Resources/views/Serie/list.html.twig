@@ -1,0 +1,23 @@
+{% extends 'AdminBundle::base.html.twig' %}
+
+{% block body %}
+  <b>SERIE</b>
+  <a href="{{ path('admin_serie_new') }}" class="btn btn-info right">Ajouter</a>
+{% if series %}
+  <table>
+    <tr>
+      <th>Nom</th>
+      <th>Actions</th>  
+    </tr>          
+    {% for serie in series %}
+      <tr class="serie">
+        <td>{{serie.name}}</td>
+        <td>
+          <a href="{{ path('admin_serie_edit',  { 'id': serie.id }) }}" class="btn btn-success edit">Modifier</a> <br>
+          <a href="{{ path('admin_serie_delete',  { 'id': serie.id }) }}" class="btn btn-danger delete" onclick="return confirm('Supprimer ce tableau ?');">Supprimer</a>
+        </td>
+      </tr>
+    {% endfor %}
+  </table>
+{% endif %}
+{% endblock %}

@@ -23,7 +23,7 @@ class Serie
     protected $name;
 
     /**
-     * @ORM\OneToMany(targetEntity="Galerie", mappedBy="serie")
+     * @ORM\OneToMany(targetEntity="Galerie", mappedBy="serie", orphanRemoval=true)
      */
     private $paintings;
 
@@ -98,5 +98,14 @@ class Serie
     public function getPaintings()
     {
         return $this->paintings;
+    }
+
+    public function getPaintingsString()
+    {
+        $paintings=[];
+        foreach ($this->paintings as $item) {
+            $paintings[] = $item->getId();
+        }
+        return implode(',', $paintings);
     }
 }
