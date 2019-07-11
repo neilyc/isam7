@@ -12,6 +12,19 @@ class GalerieController extends Controller
    */
   public function indexAction()
   {
+    $paintings = $this->getDoctrine()
+    ->getRepository('AppBundle:Galerie')
+    ->findAll();
+
+    if (!$paintings) {
+      $paintings = array();
+    }
+
+    $context = array(
+      'paintings' => $paintings
+    );
+    return $this->render('AppBundle:Galerie:view.html.twig', $context);
+    
     $series = $this->getDoctrine()
       ->getRepository('AppBundle:Serie')
       ->findAll();
