@@ -3,7 +3,7 @@
 {% block body %}
   <section class="gallery">
     <ul>
-      {% for item in series if item.paintings|length > 0 %}
+      {% for item in series %}
         {% set filename =  "/upload/paintings/" ~ item.paintings[random(item.paintings|length - 1)].filename  %}
         <li class="col-xs-12 col-md-4 col-lg-3">
           <a class="serie" href="{{ path('galerie_view', {'id': item.id}) }}">

@@ -2,7 +2,7 @@
 
 {% block body %}
   <section class="gallery_view">
-    <!--a href="{{ path('galerie') }}">< Retour à la liste des séries</a-->
+    <a href="{{ path('galerie') }}">< Retour à la liste des séries</a>
     <br>
     <ul class="grid" id="grid">
       {% for item in paintings %}
@@ -17,12 +17,12 @@
   <div class="gallery-modal">
     <span class="close">&times;</span>
     <img class="gallery-modal-content" />
-    <!--ul class="imgs" id="imgs">
+    <ul class="imgs" id="imgs">
         {% for item in paintings %}
           <li class="imgs-item">
             <img class="img" src="/upload/paintings/{{ item.filename }}">
           </li>
         {% endfor %}
-      </ul-->
+      </ul>
   </div>
 {% endblock %}
