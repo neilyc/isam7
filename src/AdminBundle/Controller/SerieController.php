@@ -73,7 +73,7 @@ class SerieController extends Controller
 
 
     if(strlen($request->request->get('new-paintings')) > 0) {
-      $newPaintings = split(",", $request->request->get('new-paintings'));
+      $newPaintings = explode(",", $request->request->get('new-paintings'));
       //var_dump($newPaintings);die;
       foreach ($newPaintings as $value) {
         $painting = $this->getDoctrine()
@@ -86,7 +86,7 @@ class SerieController extends Controller
     }
 
     if(strlen($request->request->get('delete-paintings')) > 0) {
-      $deletePaintings = split(",", $request->request->get('delete-paintings'));
+      $deletePaintings = explode(",", $request->request->get('delete-paintings'));
       foreach ($deletePaintings as $value) {
         $painting = $this->getDoctrine()
           ->getRepository('AppBundle:Galerie')
